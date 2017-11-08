@@ -38,8 +38,7 @@ RUN cd /usr/bin \
     && ln -s /usr/lib/jvm/java-1.8-openjdk/bin/javac . \
     && ln -s /usr/lib/jvm/java-1.8-openjdk/bin/jar .
 
-RUN mkdir -p /var/cache/distfiles \
-    && adduser -D builder \
+RUN adduser -D builder -s /bin/bash \
     && echo "builder    ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 	
 ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk
