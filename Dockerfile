@@ -58,4 +58,13 @@ WORKDIR /home/builder/gerrit
 # TODO(davido): check why this is causing problem with rules_closur
 RUN bazel version
 
+RUN sudo npm install -g \
+  eslint \
+  eslint-config-google \
+  eslint-plugin-html \
+  typescript \
+  fried-twinkie \
+  polylint \
+  web-component-tester
+
 ENTRYPOINT ["bash"]
