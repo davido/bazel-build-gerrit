@@ -21,7 +21,7 @@ $ docker run -ti davido42/bazel-build-gerrit
 To mount the host gerrit and cache directories:
 
 ```
-$ docker run -ti -v ~/.gerritcodereview/buck-cache/downloaded-artifacts:/home/builder/.gerritcodereview/buck-cache/downloaded-artifacts -v ~/.gerritcodereview/bazel-cache/cas:/home/builder/.gerritcodereview/bazel-cache/cas -v ~/projects/gerrit2:/home/builder/gerrit davido42/bazel-build-gerrit
+$ docker run -ti -v ~/.gerritcodereview/buck-cache/downloaded-artifacts:/home/builder/.gerritcodereview/buck-cache/downloaded-artifacts -v ~/.gerritcodereview/bazel-cache/cas:/home/builder/.gerritcodereview/bazel-cache/cas -v ~/.gerritcodereview/bazel-cache/repository:/home/builder/.gerritcodereview/bazel-cache/repository -v ~/projects/gerrit2:/home/builder/gerrit davido42/bazel-build-gerrit
 ```
 
 To build gerrit:
