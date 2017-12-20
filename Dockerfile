@@ -2,7 +2,7 @@ FROM alpine:latest
 
 MAINTAINER davido
 
-ENV BAZEL_VERSION 0.8.0
+ENV BAZEL_VERSION 0.9.0
 ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk
 
 RUN apk add --no-cache --virtual=.build-deps \
@@ -58,13 +58,15 @@ WORKDIR /home/builder/gerrit
 # TODO(davido): check why this is causing problem with rules_closur
 RUN bazel version
 
-RUN sudo npm install -g \
-  eslint \
-  eslint-config-google \
-  eslint-plugin-html \
-  typescript \
-  fried-twinkie \
-  polylint \
-  web-component-tester
+RUN sudo npm config set user 0 \
+    && sudo npm config set unsafe-perm true \
+    && sudo npm install -g \
+    eslint \
+    eslint-config-google \
+    eslint-plugin-html \
+    typescript \
+    fried-twinkie \
+    polylint \
+    web-component-tester
 
 ENTRYPOINT ["bash"]
