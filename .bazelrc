@@ -1,3 +1,4 @@
+build --experimental_repository_cache=/home/builder/.gerritcodereview/bazel-cache/repository
 build --experimental_local_disk_cache_path=/home/builder/.gerritcodereview/bazel-cache/cas
 build --experimental_local_disk_cache
 build --experimental_strict_action_env

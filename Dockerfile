@@ -46,7 +46,8 @@ COPY .* /home/builder/
 RUN chown builder:builder /home/builder/.*
 
 RUN mkdir -p /home/builder/.gerritcodereview/bazel-cache/cas \
-    && mkdir -p /home/builder/.gerritcodereview/buck-cache/downloaded-artifacts 
+    && mkdir -p /home/builder/.gerritcodereview/bazel-cache/repository \
+    && mkdir -p /home/builder/.gerritcodereview/buck-cache/downloaded-artifacts
 
 USER builder
 
