@@ -3,7 +3,7 @@
 To pull the prebuilt image from docker hub:
 
 ```
-$ docker pull davido42/bazel-build-gerrit
+$ docker pull davido42/bazel-build-gerrit:v0.9.0
 ```
 
 To build the image:
