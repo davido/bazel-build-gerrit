@@ -2,7 +2,7 @@ FROM alpine:latest
 
 MAINTAINER davido
 
-ENV BAZEL_VERSION 0.9.0
+ENV BAZEL_VERSION 0.11.0
 ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk
 
 RUN apk add --no-cache --virtual=.build-deps \
