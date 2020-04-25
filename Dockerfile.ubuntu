@@ -1,0 +1,35 @@
+FROM ubuntu:focal-20200423
+MAINTAINER davido
+
+RUN apt-get update
+RUN apt-get upgrade
+
+ENV TZ=Europe/Berlin
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
+    git \
+    g++ \
+    openjdk-11-jdk \
+    unzip \
+    zip \
+    wget \
+    npm \
+    curl \
+    python3 \
+    python-is-python3 \
+    python3-distutils \
+    vim
+
+RUN useradd -ms /bin/bash davido
+USER davido
+WORKDIR /home/davido
+ENV PATH="/home/davido/bin:${PATH}"
+
+RUN wget https://github.com/bazelbuild/bazel/releases/download/3.0.0/bazel-3.0.0-installer-linux-x86_64.sh
+RUN bash bazel-3.0.0-installer-linux-x86_64.sh --user
+
+RUN bazel version
+
+RUN echo "source /home/davido/.bazel/bin/bazel-complete.bash" >> ~/.bashrc
+
