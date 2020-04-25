@@ -8,18 +8,18 @@ ENV TZ=Europe/Berlin
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
-    git \
-    g++ \
-    openjdk-11-jdk \
-    unzip \
-    zip \
-    wget \
-    npm \
     curl \
+    g++ \
+    git \
+    npm \
+    openjdk-11-jdk \
     python3 \
-    python-is-python3 \
     python3-distutils \
-    vim
+    python-is-python3 \
+    unzip \
+    vim \
+    wget \
+    zip
 
 RUN useradd -ms /bin/bash davido
 USER davido
